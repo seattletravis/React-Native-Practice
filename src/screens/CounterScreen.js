@@ -1,12 +1,11 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import { View, Text, StyleSheet, Button } from 'react-native'
 
-
-const COUNT_INCREMENT = 1
+const COUNT_INCREMENT = 5
 
 const reducer = (state, action) => {
     //state === { counter: number }
-    //action === { type: 'increase_counter' || 'decrease_counter' }
+    //action === { type: 'increase_counter' || 'decrease_counter' , payload: 1}
     switch (action.type) {
         case 'increase_counter':
             return { ...state, counter: state.counter + action.payload }
@@ -16,8 +15,6 @@ const reducer = (state, action) => {
             return state
     }
 }
-
-
 
 const CounterScreen = () => {
     const [state, dispatch] = useReducer(reducer, { counter: 0 })
